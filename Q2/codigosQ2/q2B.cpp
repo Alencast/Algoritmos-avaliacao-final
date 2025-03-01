@@ -13,7 +13,7 @@ vector<int> t;
 
 int viagem_bt(int i, int ultimo, int custo) {
    
-    if (p[n+1] - p[ultimo] <= 100) {
+    if (p[n+1] - p[ultimo] <= 100)  {
         return custo;
     }
     // Se não há mais postos para verificar  e ainda não conseguimos chegar, o problema não tem solução
