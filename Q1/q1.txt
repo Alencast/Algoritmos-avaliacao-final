@@ -4,10 +4,5 @@
 
 Uma solução usando o método guloso para o problema do troco funciona da seguinte forma:
 
-Ordenação: As moedas disponíveis são organizadas em ordem decrescente.
-Escolha Gulosa: Para cada moeda, pega-se a maior quantidade possível sem ultrapassar o valor do troco.
-Atualização: Subtrai-se o valor correspondente das moedas usadas e repete-se o processo até que o troco seja completamente representado.
-Finalização: Exibe-se a quantidade de cada moeda utilizada.
-Esse método funciona bem quando o conjunto de moedas é canônico, garantindo a solução ótima. Caso contrário, pode não ser a melhor abordagem.
-
-Para chegar a uma solução para o problema do troco, inicialmente é necessário ordenar as moedas disponíveis em ordem decrescente, pois queremos sempre escolher a maior moeda possível primeiro.
+Para resolver o problema do troco usando o método guloso, o primeiro passo é ordenar as moedas em ordem decrescente, já que devemos sempre escolher a maior moeda possível primeiro.
+Se as moedas não estiverem organizadas, precisamos ordená-las antes de começar. Depois, para cada moeda, pegamos a maior quantidade possível sem ultrapassar o valor do troco. Subtraímos o valor correspondente e repetimos esse processo até que o valor do troco seja alcançado.
