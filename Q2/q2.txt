@@ -1,0 +1,4 @@
+# Respostas Q2
+
+(a) Descreva um algoritmo que determine o menor tempo possível que você estará nos postos reabastecendo.
+DICA: Chegando em C2, você deve ter parado em algum dos postos a menos de 100km da chegada.
