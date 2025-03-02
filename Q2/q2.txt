@@ -2,3 +2,52 @@
 
 (a) Descreva um algoritmo que determine o menor tempo possível que você estará nos postos reabastecendo.
 DICA: Chegando em C2, você deve ter parado em algum dos postos a menos de 100km da chegada.
+
+A ideia do algoritmo de backtracking no problema em questão é testar todas as possibilidades de parada em cada posto para verificar qual caminho permite completar a viagem com o menor tempo gasto nos abastecimentos. A função recursiva vai passando o posto atual, o último posto onde parou para abastecer e o custo acumulado até aquele momento. Em cada chamada, se a distância do último posto abastecido até o destino estiver dentro de 100 km, significa que é possível chegar sem mais paradas, e aí comparamos o custo atual com o melhor custo já encontrado. Caso não seja possível, para o posto atual temos duas opções: ou pulamos o posto e seguimos com o último abastecido, ou paramos ali, atualizando o custo e marcando esse posto como o último onde abastecemos. Além disso, se o custo já estiver maior que o melhor caminho encontado até o momento, paramos de explorar aquele caminho (corte ou poda). Dessa forma, o algoritmo acaba testando todas as rotas possíveis que respeitam o limite de 100 km e garante que a solução encontrada é a de menor custo.
+
+
+(c) Escreva 3 casos de testes, explicando manualmente a solução ótima para cada um.]
+
+Caso de teste1:
+
+Entrada: 
+5
+30 5
+60 2
+95 10
+130 3
+180 4
+210
+
+No teste 1 a entrada define cinco postos com suas posições e tempos e o destino está a 210 km. Começamos na posição 0 e precisamos escolher quais postos utilizar pra abastecer de forma que não se perca mais de 100 km sem reabastecer, ao mesmo tempo, minimizar o tempo total gasto. É possível perceber  que podemos ignorar o posto na posição 30, já que abastecer lá custaria 5, enquanto o posto na posição 60 tem um custo de apenas 2. É possível ir de 0 a 60 km, que é uma distância de 60 km, portanto dentro do limite. Abastecendo no posto de 60 gastamos apenas 2 de tempo. Depois disso, o próximo passo ideal é abastecer no posto da posição 130, onde o custo é de 3. A distância de 60 a 130 é de 70 km e de 130 até o destino em 210 km é de 80 km. Assim, não precisamos abastecer em nenhum outro posto e o custo total acumulado fica em 2 + 3, igual a 5, que é a melhor solução nesse caso.
+
+Casos de teste 2:
+
+Entrada:
+3
+40 3
+80 7
+140 2
+190
+
+Já no teste 2, temos três postos. O primeiro fica a 40 km e custa 3, o segundo a 80 km com custo 7 e o terceiro a 140 km com custo 2, sendo que o destino final fica a 190 km. A ideia é nunca rodar mais de 100 km sem abastecer. Então, partindo de 0, vamos até o posto dos 40 km e abastece por 3. Depois, é possível ignorar o posto dos 80 km porque indo de 40 km direto para 140 km são exatamente 100 km, o que está no limite dos 100km, e o custo do posto dos 140 km é menor. Assim, abastecendo no posto dos 140 km, que custa 2, conseguimos seguir até o destino, já que de 140 até 190 km dá só 50 km. No fim, o custo total fica 3 + 2 = 5, que é o melhor caminho possível.
+
+Casos de teste 3:
+
+Entrada:
+
+4
+40 5
+100 3
+160 4
+220 2
+280
+
+
+No teste 3, temos 4 postos e o destino final fica a 280 km. O primeiro posto está a 40 km e custa 5, o segundo a 100 km com custo 3, o terceiro a 160 km com custo 4, e o quarto a 220 km com custo 2. A estratégia ideal aqui é pular o posto dos 40 km, já que dá pra chegar direto aos 100 km, que ficam exatamente no limite de 100 km e têm um custo menor. Partindo do zero, vamos direto até os 100 km abastecer por 3. Depois, de 100 km, dá pra seguir sem problemas até os 160 km, que estão a 60 km de distância, e aí abastece por 4. Seguindo a viagem, de 160 km vai até os 220 km (outra etapa de 60 km), onde abastece por 2. Por fim, depois dos 220 km, o destino dos 280 km fica a apenas 60 km, dentro do limite. Assim, o custo total acumulado é 3 + 4 + 2 = 9, que é o melhor resultado possível para esse caso.
+
+
+
+(d) Otimize o algoritmo usando a técnica de programação dinâmica. Descreva a tabela a ser gerada.
+
+A tabela dp é uma matriz onde cada linha representa um posto (ou o destino) e cada coluna indica qual foi o último posto onde abastecemos. No começo dp[0][0] é zero, porque partimos da cidade sem nenhum custo. Conforme vamos preenchendo a tabela, para cada posto i (isso também inclui o destino) nós olhamos para todos os postos anteriores j e se dá pra ir de j até i sem ultrapassar 100 km, vamos atualizando duas coisas: se não abastecermos em i, o custo para chegar até i mantendo j como última parada é o mesmo que estava em dp[j][j]; mas se decidirmos abastecer em i, o custo passa a ser o custo dp[j][j] mais o tempo de abastecimento t[i e esse valor fica em dp[i][i]. No final, para o destino (que é o posto n+1), a melhor solução é o menor valor dentre todas as opções possíveis, ou seja, o menor custo registrado em dp[n+1][j] para algum j. Assim, a tabela acaba mostrando todas as combinações possíveis de paradas, permitindo identificar qual sequência vai resultar no menor tempo total gasto.
