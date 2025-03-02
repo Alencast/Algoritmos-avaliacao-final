@@ -15,11 +15,12 @@ casos de teste:
 5 8
 3 4
 
-Linha 0: 0	0	0	0	0	0	0	0	0	0	0    
-Linha 1: 0	0	0	0	5	5	5	5	5	5	5    
-Linha 2: 0	0	0	0	5	5	5	5	12	12	
-Linha 3: 0	0	0	0	5	8	8	8	12	13	
-Linha 4: 0	0	0	4	5	8	8	9	12	13	
+Linha 0: 0	0	0	0	0	0	0	0	0	0	0
+Linha 1: 0	0	0	0	5	5	5	5	5	5	5
+Linha 2: 0	0	0	0	5	5	5	5	12	12	12
+Linha 3: 0	0	0	0	5	8	8	8	12	13	13
+Linha 4: 0	0	0	4	5	8	8	9	12	13	13
+
 
 Nesse teste, temos 4 livros e um orçamento de 10. O primeiro livro custa 4 e dá 5 páginas, o segundo custa 8 e rende 12 páginas, o terceiro custa 5 e oferece 8 páginas e o quarto custa 3 e acrescenta 4 páginas. Quando montamos a tabela DP, a primeira linha, que representa nenhum livro comprado fica zerada. Já na segunda linha, considerando só o primeiro livro, pra orçamentos menores que 4 não dá pra comprar nada, e a partir de 4, a gente garante 5 páginas. Na próxima linha, com o segundo livro, quando o orçamento chega a 8 ou mais, a melhor opção passa a ser 12 páginas, que é melhor que 5. Depois, ao considerar o terceiro livro, algumas combinações melhoram o total, chegando a 13 páginas para certos valores do orçamento. Por fim, incluindo o quarto livro, a tabela se ajusta e o melhor resultado com orçamento 10 continua sendo 13 páginas. Ou seja, com 10 unidades de orçamento, a maior quantidade de páginas que dá pra comprar é 13.
 
