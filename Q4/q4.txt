@@ -7,3 +7,14 @@ Depois, nós preenchemos a tabela de trás pra frente, ou seja, começando pela 
 
 
 (e) Faça uma análise de desempenho comparativa sem a programação dinâmica e com a programação dinâmica.
+
+Sem programação dinâmica, a solução recursiva vai tentando todas as combinações possíveis de moedas, repetindo muitas vezes os mesmos cálculos. Isso faz com que o tempo de execução cresça de forma exponencial, conforme o número de moedas ou o valor V aumenta. Em resumo, a solução sem programação dinâmica pode se tornar inviável rapidamente para casos maiores.
+
+Já com programação dinâmica, nós construimos uma tabela onde cada subproblema é resolvido uma única vez, salvando os valores já calculados. Assim, o algoritmo passa a ter um tempo de execução proporcional ao tamanho dessa tabela. Essa abordagem é muito mais eficiente, pois elimina a repetição de cálculos e torna possível resolver o problema para valores que de outra forma, demorariam muito ou nem terminariam.
+
+
+
+
+
+
+

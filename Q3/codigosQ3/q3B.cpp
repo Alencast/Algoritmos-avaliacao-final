@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//globais
+//var globais
 int n;
 int x;
 
