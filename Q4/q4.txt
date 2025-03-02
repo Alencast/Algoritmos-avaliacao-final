@@ -1,0 +1,9 @@
+(c) Defina a tabela para a implementação com programação dinâmica.
+
+
+A ideia é criar uma tabela onde cada linha corresponde a um ponto na lista de moedas e cada coluna representa um valor de 0 até o V que queremos montar. Ou seja, dp[i][v] vai dizer quantas maneiras existem de formar o valor v usando as moedas a partir do índice i. Sabemos que formar o valor 0 sempre tem uma solução: não usar nenhuma moeda, então para qualquer linha dp[i][0] vale 1. E se já passamos por todas as moedas (i = C) e ainda precisamos formar algum valor maior que 0, aí não tem jeito, então dp[C][v > 0] = 0. 
+Depois, nós preenchemos a tabela de trás pra frente, ou seja, começando pela última moeda e indo até a primeira. Para cada posição i e para cada valor v de 1 até V, olhamos duas coisas: se não usar a moeda i, a quantidade de formas é dp[i+1][v]; se usar a moeda i (o que só dá se v for pelo menos igual ao valor da moeda), somamos dp[i][v - moeda[i]]  que é o número de maneiras de formar o valor que sobra depois de usar a moeda i, lembrando que a mesma moeda pode ser usada mais de uma vez. A soma dessas duas opções é o número total de maneiras de formar v usando as moedas a partir de i.
+
+
+
+(e) Faça uma análise de desempenho comparativa sem a programação dinâmica e com a programação dinâmica.
