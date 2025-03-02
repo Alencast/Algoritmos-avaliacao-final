@@ -1,0 +1,2 @@
+(c) Descreva tabela e faça uma função não recursiva que preencha a tabela completa.
+
