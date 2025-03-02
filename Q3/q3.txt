@@ -25,3 +25,14 @@ Linha 4: 0	0	0	4	5	8	8	9	12	13	13
 Nesse teste, temos 4 livros e um orçamento de 10. O primeiro livro custa 4 e dá 5 páginas, o segundo custa 8 e rende 12 páginas, o terceiro custa 5 e oferece 8 páginas e o quarto custa 3 e acrescenta 4 páginas. Quando montamos a tabela DP, a primeira linha, que representa nenhum livro comprado fica zerada. Já na segunda linha, considerando só o primeiro livro, pra orçamentos menores que 4 não dá pra comprar nada, e a partir de 4, a gente garante 5 páginas. Na próxima linha, com o segundo livro, quando o orçamento chega a 8 ou mais, a melhor opção passa a ser 12 páginas, que é melhor que 5. Depois, ao considerar o terceiro livro, algumas combinações melhoram o total, chegando a 13 páginas para certos valores do orçamento. Por fim, incluindo o quarto livro, a tabela se ajusta e o melhor resultado com orçamento 10 continua sendo 13 páginas. Ou seja, com 10 unidades de orçamento, a maior quantidade de páginas que dá pra comprar é 13.
 
 
+
+
+(e) Faça uma análise de desempenho comparativa sem a programação dinâmica e com a programação dinâmica.
+
+Com backtracking, precisamos basicamente testar todas as combinações possíveis de livros , pra cada livro temos duas opções (comprar ou não comprar). Isso faz com que o número de combinações seja O(2^N) (exponencial), e se N crescer, o tempo de execução aumenta de forma muito explosiva. Ou seja, o algoritmo fica muito lento porque acaba repetindo várias vezes os mesmos cálculos. Já com programação dinâmica, a ideia é montar uma tabela com tamanho (n+1) por (X+1), onde n é o número de livros e X é o orçamento disponível. Cada posição da tabela é calculada só uma vez, o que significa que o algoritmo roda em um tempo muito menor. Isso é muito mais eficiente, porque evitamos refazer os mesmos cálculos e o problema se torna muito mais escalável. Podemos concluir que enquanto o backtracking pode até funcionar para um número pequeno de livros, a programação dinâmica resolve o problema de forma muito mais rápida e prática para N maiores.
+
+
+
+
+
+
