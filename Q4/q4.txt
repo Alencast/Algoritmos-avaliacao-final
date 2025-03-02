@@ -1,1 +1,0 @@
-(e) Faça uma análise de desempenho comparativa sem a programação dinâmica e com a programação dinâmica.
