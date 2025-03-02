@@ -2,3 +2,9 @@
 
 A ideia é montar uma tabela/matriz dp onde cada linha representa quantos livros já foram considerados e cada coluna representa um valor de orçamento de 0 até X. dp[i][j] guarda o máximo de páginas que dá pra conseguir comprando alguns dos primeiros i livros com um orçamento de j. No início, com 0 livro, não conseguimos nenhuma página, então todas as entradas da linha 0 valem 0. Depois, para cada livro, a gente verifica duas opções: não comprar o livro e manter o mesmo número de páginas que já tínhamos, ou comprar o livro, o que dá certo caso o orçamento j seja suficiente para pagar o preço do livro  e se comprar, o número de páginas será o que já se tinha com o orçamento reduzido pelo preço desse livro.. A cada passo, escolhemos a opção que maximiza as páginas. No final, a resposta é dp[n][X], ou seja, o máximo de páginas que se pode obter usando todos os livros com o orçamento total.
 
+
+
+(d) Defina casos de teste e mostre o preenchimento da tabela.
+DICA: Faça um função para imprimir a tabela
+
+
